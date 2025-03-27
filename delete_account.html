@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 400px;
+            text-align: center;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 90%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #e43f3f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Account</h2>
+        <form id="deleteForm" onsubmit="return handleDelete(event)">
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            <button type="submit">Delete Account</button>
+        </form>
+    </div>
+
+    <script>
+        function handleDelete(event) {
+            event.preventDefault(); // Prevent default form submission
+            document.body.innerHTML = "<h1 style='text-align: center; margin-top: 20%; font-family: Arial, sans-serif;'>Your account will be deleted in a few days.</h1>";
+        }
+    </script>
+</body>
+</html>
