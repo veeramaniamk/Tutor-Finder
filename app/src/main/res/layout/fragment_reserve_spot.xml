@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".student.ReserveSpotFragment">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        />
+    <LinearLayout
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/layout_border"
+            >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/courseProfile"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:contentDescription=""
+                android:src="@mipmap/ic_launcher" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/courseName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="course Name"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="10dp"
+                    />
+                <LinearLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:src="@drawable/credits"
+                        android:layout_height="30dp"/>
+                    <TextView
+                        android:id="@+id/credites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="credits"
+                        android:textSize="15dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:src="@drawable/booking"
+                        android:layout_height="30dp"/>
+                    <TextView
+                        android:id="@+id/duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="duration"
+                        android:textSize="15dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        />
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/calendar"
+                    android:layout_height="30dp"/>
+                    <TextView
+                        android:id="@+id/day_off"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="day off"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="15dp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        />
+                    </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                tools:ignore="WebViewLayout" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/showDetails"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/selectCourse"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Preferred Location"
+            >
+            <AutoCompleteTextView
+                android:id="@+id/user_select_course_mode"
+                android:layout_width="match_parent"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerInParent="true"
+            android:id="@+id/edidatelayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/idEdtDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:background="@null"
+            android:inputType="date"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:hint="Enter date"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/timeSlot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Slots "
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:gravity="center"
+             />
+
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/backround_border"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/m"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Write Your Message"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="28dp"
+            android:hint="Enter Your Message"
+            android:layout_gravity="center"
+            android:id="@+id/message1"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="top|left"
+                android:inputType="textMultiLine"
+                android:lines="6"
+                android:overScrollMode="always"
+                android:scrollHorizontally="false"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textColorHint="@color/white"
+            android:hint="Request This Tutor"
+            android:background="@drawable/for_package_button"
+            android:id="@+id/request_tutor"
+            />
+
+    </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>
+

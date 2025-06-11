@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/for_package_layout"
+        android:gravity="center">
+        <LinearLayout
+            android:layout_width="250dp"
+            android:orientation="vertical"
+            android:layout_height="250dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:id="@+id/package_name"
+            android:textSize="30dp"
+            android:text="Gold-Student"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/credits"
+            android:text="you credits"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/package_cost"
+            android:textSize="60dp"
+            android:layout_marginTop="20dp"
+            android:text="₹200"
+            android:textStyle="bold"
+            />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buy"
+                android:layout_marginTop="20dp"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:background="@drawable/for_package_button"
+                android:hint="subscribe"
+                android:layout_gravity="center"
+                android:textColorHint="@color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

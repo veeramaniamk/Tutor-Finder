@@ -1,0 +1,50 @@
+# Android-specific files
+.gradle/
+.idea/
+*.iml
+/local.properties
+
+# Android build files
+/build/
+/app/build/
+/*/build/
+
+# User-specific files
+*.keystore
+*.jks
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.class
+*.apk
+*.dex
+*.so
+*.jar
+*.war
+*.ear
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*.orig
+
+# Miscellaneous
+*.lock
+*.gz
+*.zip
+*.tar
+*.7z
+
+# Test results
+*.xml
+*.out
+*.tap
+*.coverage

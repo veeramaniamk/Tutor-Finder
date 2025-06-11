@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">TutorFinder</string>
+    <string name="logo">Logo</string>
+    <string name="title">Tutor Finder</string>
+    <string name="home">Home</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login</string>
+    <string name="email">Enter Email Address</string>
+    <string name="password">Enter Password</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="signup_as">Signup As</string>
+    <string name="signup">Signup</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="book_now">Book Now</string>
+    <string name="my_bookings">Bookings</string>
+    <string name="my_packages">Packages</string>
+
+</resources>

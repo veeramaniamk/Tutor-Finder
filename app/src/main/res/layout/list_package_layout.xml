@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/list_packages"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:id="@+id/packageLayoutId"
+        android:orientation="vertical"
+        android:background="@drawable/for_package_layout"
+        >
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content" >
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+              >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:padding="5dp"
+                   android:text="Package Name"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:padding="5dp"
+                   android:textStyle="bold"
+                   android:id="@+id/package_name"
+                   android:text="Gold-Student"/>
+           </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:padding="5dp"
+                   android:layout_height="wrap_content"
+                   android:text="Credits"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:id="@+id/credits"
+                    android:text="you credits"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:padding="5dp"
+                   android:layout_height="wrap_content"
+                   android:text="Package Cost "
+                   />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:padding="5dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/package_cost"
+                    android:text="₹200"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+           </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/list_packge_button"
+            android:hint="subscribe"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="bottom"
+            android:textColorHint="@color/white"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+

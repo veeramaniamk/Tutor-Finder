@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/tutor_home"
+        android:title="@string/home"
+        android:icon="@drawable/home"/>
+
+    <item android:id="@+id/transaction"
+        android:visible="false"
+        android:title="Transaction"
+        android:icon="@drawable/transaction"/>
+
+    <item android:id="@+id/student_bookings"
+        android:title="@string/my_bookings"
+        android:visible="false"
+        android:icon="@drawable/booking"/>
+
+    <item android:id="@+id/location"
+        android:title="Location"
+        android:visible="false"
+        android:icon="@drawable/location"/>
+
+    <item android:id="@+id/tutor_profile"
+        android:title="@string/profile"
+        android:visible="false"
+        android:icon="@drawable/profile"/>
+
+    <item android:id="@+id/login"
+        android:title="@string/login"
+        android:icon="@drawable/log_in"/>
+
+    <item android:id="@+id/signup"
+        android:title="@string/signup"
+        android:icon="@drawable/profile"/>
+
+    <item android:id="@+id/logout"
+        android:title="@string/logout"
+        android:icon="@drawable/log_out"/>
+
+</menu>
