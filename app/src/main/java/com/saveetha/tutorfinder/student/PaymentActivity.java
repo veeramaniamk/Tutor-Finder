@@ -1,13 +1,10 @@
 package com.saveetha.tutorfinder.student;
 
-import static com.google.android.material.internal.ContextUtils.getActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.TextPaint;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,8 +32,6 @@ import com.google.android.play.core.install.model.UpdateAvailability;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 import com.saveetha.tutorfinder.AppConstants;
-import com.saveetha.tutorfinder.LoginActivity;
-import com.saveetha.tutorfinder.MainActivity;
 import com.saveetha.tutorfinder.R;
 import com.saveetha.tutorfinder.RestClient;
 import com.saveetha.tutorfinder.model.paymentapi.PaymentResponse;

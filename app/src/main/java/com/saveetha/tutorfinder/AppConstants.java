@@ -23,5 +23,4 @@ public class AppConstants {
         Toast.makeText(context, "Update Available", Toast.LENGTH_SHORT).show();
     }
 
-    //dfadf
 }
