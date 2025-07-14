@@ -6,6 +6,7 @@ import android.widget.Toast;
 public class AppConstants {
     private AppConstants() {}
     public static final String BASE_URL = "https://tutor.zoop.me/api/";
+    public static final String RAZORPAY_KEY = "rzp_test_U2XWpODmhRkL0l";
     public static final String PLATFORM = "mobile";
     public static final String SHARED_PREF_NAME = "tutorpref";
     public static final String KEY_ID = "id";
