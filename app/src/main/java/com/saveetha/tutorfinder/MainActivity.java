@@ -4,6 +4,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -26,6 +27,15 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.billingclient.api.AcknowledgePurchaseParams;
+import com.android.billingclient.api.BillingClient;
+import com.android.billingclient.api.BillingClientStateListener;
+import com.android.billingclient.api.BillingFlowParams;
+import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.ProductDetails;
+import com.android.billingclient.api.Purchase;
+import com.android.billingclient.api.PurchasesUpdatedListener;
+import com.android.billingclient.api.QueryProductDetailsParams;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -47,7 +57,10 @@ import com.saveetha.tutorfinder.student.TransactionFragment;
 import com.saveetha.tutorfinder.tutor.LocationFragment;
 import com.saveetha.tutorfinder.tutor.TutorHomeFragment;
 
-public class MainActivity extends AppCompatActivity   {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity   implements PurchasesUpdatedListener {
 
     SharedPreferences sf;
     private long backPressedTime = 0;
@@ -55,6 +68,7 @@ public class MainActivity extends AppCompatActivity   {
 //    private static final int IMMEDIATE_UPDATE = 1;
 //    private static final int FLEXIBLE_UPDATE = AppUpdateType.FLEXIBLE;
 
+    private BillingClient billingClient;
 
     @SuppressLint("ResourceType")
     @Override
@@ -75,6 +89,12 @@ public class MainActivity extends AppCompatActivity   {
         sf = getSharedPreferences(AppConstants.SHARED_PREF_NAME, MODE_PRIVATE);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.getMenu().clear();
+
+        billingClient = BillingClient.newBuilder(this)
+                .enablePendingPurchases()
+                .setListener(this) // PurchasesUpdatedListener
+                .build();
+        connectToPlayBilling();
 
         // The callback can be enabled or disabled here or in handleOnBackPressed()
 //        EditText editText=new EditText(this);
@@ -283,6 +303,79 @@ public class MainActivity extends AppCompatActivity   {
             }
         });
 
+    }
+
+    @Override
+    public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> purchases) {
+        if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK && purchases != null) {
+            for (Purchase purchase : purchases) {
+                handlePurchase(purchase);
+            }
+        }
+    }
+
+    private void connectToPlayBilling() {
+        billingClient.startConnection(new BillingClientStateListener() {
+            @Override
+            public void onBillingSetupFinished(BillingResult billingResult) {
+                if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
+                    querySubscriptionDetails();
+                }
+            }
+
+            @Override
+            public void onBillingServiceDisconnected() {
+                // Try reconnecting if needed
+            }
+        });
+    }
+
+    private void querySubscriptionDetails() {
+        List<QueryProductDetailsParams.Product> productList = new ArrayList<>();
+        productList.add(
+                QueryProductDetailsParams.Product.newBuilder()
+                        .setProductId("monthly_premium") // must match Product ID in Play Console
+                        .setProductType(BillingClient.ProductType.SUBS)
+                        .build()
+        );
+
+        QueryProductDetailsParams params = QueryProductDetailsParams.newBuilder()
+                .setProductList(productList)
+                .build();
+
+        billingClient.queryProductDetailsAsync(params, (billingResult, productDetailsList) -> {
+            if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK
+                    && productDetailsList != null && !productDetailsList.isEmpty()) {
+
+                ProductDetails productDetails = productDetailsList.get(0);
+
+                BillingFlowParams.ProductDetailsParams productDetailsParams =
+                        BillingFlowParams.ProductDetailsParams.newBuilder()
+                                .setProductDetails(productDetails)
+                                .build();
+
+                BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
+                        .setProductDetailsParamsList(
+                                java.util.Collections.singletonList(productDetailsParams)
+                        )
+                        .build();
+
+                billingClient.launchBillingFlow(this, billingFlowParams);
+            }
+        });
+    }
+    private void handlePurchase(@NonNull Purchase purchase) {
+        if (purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+            if (!purchase.isAcknowledged()) {
+                AcknowledgePurchaseParams acknowledgePurchaseParams =
+                        AcknowledgePurchaseParams.newBuilder()
+                                .setPurchaseToken(purchase.getPurchaseToken())
+                                .build();
+                billingClient.acknowledgePurchase(acknowledgePurchaseParams, billingResult -> {
+                    // Acknowledged successfully
+                });
+            }
+        }
     }
 
 }

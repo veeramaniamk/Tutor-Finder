@@ -4,14 +4,14 @@ plugins {
 
 android {
     namespace = "com.saveetha.tutorfinder"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.saveetha.tutorfinder"
+        applicationId = "com.saveetha.tutorfinder1"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 7
-        versionName = "7.0"
+        targetSdk = 35
+        versionCode = 9
+        versionName = "9.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -71,4 +71,7 @@ dependencies {
     // This dependency is downloaded from the Google’s Maven repository.
     // So, make sure you also include that repository in your project's build.gradle file.
     implementation("com.google.android.play:app-update:2.1.0")
+
+    implementation("com.android.billingclient:billing:6.2.1")
+
 }
